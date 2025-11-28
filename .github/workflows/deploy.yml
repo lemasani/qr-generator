@@ -51,6 +51,6 @@ jobs:
                   key: ${{ secrets.VPS_SSH_KEY }}
                   port: ${{ secrets.VPS_PORT }}
                   script: |
-                      sudo chown -R www-data:www-data /var/www/qr
+                      sudo chown -R vera:vera /var/www/qr
                       sudo chmod -R 755 /var/www/qr
                       sudo systemctl reload nginx
