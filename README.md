@@ -22,12 +22,14 @@ A modern, beautiful QR code generator built with React, TypeScript, and Tailwind
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
-git clone <repository-url>
+git clone https://github.com/lemasani/qr-generator.git
 cd qr-generator
 ```
 
 2. Install dependencies using pnpm:
+
 ```bash
 pnpm install
 ```
@@ -37,6 +39,7 @@ pnpm install
 ### Development
 
 Start the development server:
+
 ```bash
 pnpm dev
 ```
@@ -46,6 +49,7 @@ The application will be available at `http://localhost:5173`
 ### Build
 
 Build for production:
+
 ```bash
 pnpm build
 ```
@@ -53,6 +57,7 @@ pnpm build
 ### Preview
 
 Preview the production build:
+
 ```bash
 pnpm preview
 ```
@@ -60,6 +65,7 @@ pnpm preview
 ### Lint
 
 Run ESLint to check code quality:
+
 ```bash
 pnpm lint
 ```
@@ -81,7 +87,7 @@ The QR code size and styling can be customized in `src/App.tsx`:
 
 ## 📁 Project Structure
 
-```
+```text
 qr-generator/
 ├── src/
 │   ├── App.tsx          # Main application component
