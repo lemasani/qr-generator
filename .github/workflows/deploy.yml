@@ -30,7 +30,19 @@ jobs:
 
             - name: Build project
               run: pnpm build
-
+              
+            - name: Set permissions
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.VPS_HOST }}
+                  username: ${{ secrets.VPS_USERNAME }}
+                  key: ${{ secrets.VPS_SSH_KEY }}
+                  port: ${{ secrets.VPS_PORT }}
+                  script: |
+                      sudo chown -R vera:vera /var/www/qr
+                      sudo chmod -R 755 /var/www/qr
+                      sudo systemctl reload nginx
+                        
             - name: Deploy to VPS
               uses: appleboy/scp-action@v0.1.7
               with:
@@ -43,14 +55,3 @@ jobs:
                   strip_components: 1
                   rm: true
 
-            - name: Set permissions
-              uses: appleboy/ssh-action@v1.0.3
-              with:
-                  host: ${{ secrets.VPS_HOST }}
-                  username: ${{ secrets.VPS_USERNAME }}
-                  key: ${{ secrets.VPS_SSH_KEY }}
-                  port: ${{ secrets.VPS_PORT }}
-                  script: |
-                      sudo chown -R vera:vera /var/www/qr
-                      sudo chmod -R 755 /var/www/qr
-                      sudo systemctl reload nginx
